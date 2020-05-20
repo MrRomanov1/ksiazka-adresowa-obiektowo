@@ -1,0 +1,10 @@
+*.exe
+
+*.cbp
+
+bin/
+obj/
+
+plan/
+
+Ksiazka Adresowa obiekt.*
