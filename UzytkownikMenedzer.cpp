@@ -54,7 +54,14 @@ bool UzytkownikMenedzer::czyIstniejeLogin(string login) {
             cout << endl << "Istnieje uzytkownik o takim loginie." << endl;
             return true;
         }
-
     }
     return false;
+}
+
+
+void UzytkownikMenedzer::wczytajUzytkownikowZPliku(){
+
+    uzytkownicy = plikZUzytkownikami.wczytajUzytkownikowZPliku();
+
+
 }
