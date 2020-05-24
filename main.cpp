@@ -4,10 +4,9 @@
 
 using namespace std;
 
-int main()
-{
+int main() {
 
-    KsiazkaAdresowa ksiazkaAdresowa;
+    KsiazkaAdresowa ksiazkaAdresowa("Uzytkownicy2.txt");
 
     ksiazkaAdresowa.wypiszWszystkichUzytkownikow();
 
