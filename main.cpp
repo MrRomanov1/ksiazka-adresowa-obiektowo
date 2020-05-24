@@ -3,7 +3,6 @@
 #include "KsiazkaAdresowa.h"
 #include "AdresatMenedzer.h"
 
-
 using namespace std;
 
 int main() {
@@ -39,7 +38,7 @@ int main() {
 
                 idOstatniegoAdresata = adresatMenedzer.wczytajAdresatowZalogowanegoUzytkownikaZPliku(idZalogowanegoUzytkownika);
 
-                wybor = ksiazkaAdresowa.wybierzOpcjeZMenuUzytkownika();
+            wybor = ksiazkaAdresowa.wybierzOpcjeZMenuUzytkownika();
 
             switch (wybor) {
             case '1':
@@ -52,7 +51,7 @@ int main() {
                 //wyszukajAdresatowPoNazwisku(adresaci);
                 break;
             case '4':
-                //wyswietlWszystkichAdresatow(adresaci);
+                adresatMenedzer.wyswietlWszystkichAdresatow();
                 break;
             case '5':
                 //idUsunietegoAdresata = usunAdresata(adresaci);
