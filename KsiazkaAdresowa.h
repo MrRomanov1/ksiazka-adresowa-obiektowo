@@ -14,7 +14,8 @@ public:
     KsiazkaAdresowa(string nazwaPlikuZUzytkownikami) : uzytkownikMenedzer(nazwaPlikuZUzytkownikami) {
         uzytkownikMenedzer.wczytajUzytkownikowZPliku();
     };
-
+    char wybierzOpcjeZMenuGlownego();
+    char wybierzOpcjeZMenuUzytkownika();
     void rejestracjaUzytkownika();
     int logowanieUzytkownika();
     void wypiszWszystkichUzytkownikow();
