@@ -1,16 +1,18 @@
 #include <iostream>
 
 #include "KsiazkaAdresowa.h"
+#include "AdresatMenedzer.h"
+
 
 using namespace std;
 
 int main() {
 
     int idZalogowanegoUzytkownika = 0;
-    int idOstatniegoAdresata = 0;
-    int idUsunietegoAdresata = 0;
+    int idOstatniegoAdresata;
+    //int idUsunietegoAdresata = 0;
     char wybor;
-
+    AdresatMenedzer adresatMenedzer;
     KsiazkaAdresowa ksiazkaAdresowa("Uzytkownicy.txt");
 
     while (true) {
@@ -33,11 +35,11 @@ int main() {
                 break;
             }
         } else {
-            /*if (adresaci.empty() == true)
+            if (adresatMenedzer.czyWektorJestPusty() == true)
 
-                idOstatniegoAdresata = wczytajAdresatowZalogowanegoUzytkownikaZPliku(adresaci, idZalogowanegoUzytkownika);
-            */
-            wybor = MetodyPomocnicze::wybierzOpcjeZMenuUzytkownika();
+                idOstatniegoAdresata = adresatMenedzer.wczytajAdresatowZalogowanegoUzytkownikaZPliku(idZalogowanegoUzytkownika);
+
+                wybor = MetodyPomocnicze::wybierzOpcjeZMenuUzytkownika();
 
             switch (wybor) {
             case '1':
