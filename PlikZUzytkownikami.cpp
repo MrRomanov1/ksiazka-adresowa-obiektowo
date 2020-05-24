@@ -1,5 +1,5 @@
 #include "PlikZUzytkownikami.h"
-#include "MetodyPomocnicze.h"
+
 
 
 bool PlikZUzytkownikami::czyPlikJestPusty() {
@@ -56,7 +56,6 @@ vector <Uzytkownik> PlikZUzytkownikami::wczytajUzytkownikowZPliku() {
             uzytkownik = pobierzDaneUzytkownika(daneJednegoUzytkownikaOddzielonePionowymiKreskami);
             uzytkownicy.push_back(uzytkownik);
         }
-
     }
     plikTekstowy.close();
     return uzytkownicy;
@@ -76,7 +75,7 @@ Uzytkownik PlikZUzytkownikami::pobierzDaneUzytkownika(string daneJednegoUzytkown
                 uzytkownik.ustawId(atoi(pojedynczaDanaUzytkownika.c_str()));
                 break;
             case 2:
-                uzytkownik.ustawLogin (pojedynczaDanaUzytkownika);
+                uzytkownik.ustawLogin(pojedynczaDanaUzytkownika);
                 break;
             case 3:
                 uzytkownik.ustawHaslo(pojedynczaDanaUzytkownika);
