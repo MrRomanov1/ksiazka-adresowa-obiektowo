@@ -19,19 +19,23 @@ class AdresatMenedzer {
     string nazwaPlikuZAdresatami;
 
     Adresat podajDaneNowegoAdresata(int idZalogowanegoUzytkownika, int idOstatniegoAdresata);
-
-public:
-    AdresatMenedzer();
-    int dodajAdresata(int idZalogowanegoUzytkownika, int idOstatniegoAdresata);
-    int wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika);
+    void wyswietlDaneAdresata(Adresat adresat);
     int pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami);
     static int pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami);
     static Adresat pobierzDaneAdresata(string daneAdresataOddzielonePionowymiKreskami);
     void wypiszWszystkichAdresatow();
-    bool czyWektorJestPusty();
     string zamienPierwszaLitereNaDuzaAPozostaleNaMale(string tekst);
     void dopiszAdresataDoPliku(Adresat adresat);
     string zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(Adresat adresat);
     bool czyPlikJestPusty();
+
+public:
+
+    AdresatMenedzer();
+    int dodajAdresata(int idZalogowanegoUzytkownika, int idOstatniegoAdresata);
+    int wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika);
+    bool czyWektorJestPusty();
+    void wyswietlWszystkichAdresatow();
+
 };
 #endif
