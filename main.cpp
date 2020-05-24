@@ -9,7 +9,7 @@ using namespace std;
 int main() {
 
     int idZalogowanegoUzytkownika = 0;
-    int idOstatniegoAdresata;
+    int idOstatniegoAdresata= 0;
     //int idUsunietegoAdresata = 0;
     char wybor;
     AdresatMenedzer adresatMenedzer;
@@ -17,7 +17,7 @@ int main() {
 
     while (true) {
         if (idZalogowanegoUzytkownika == 0) {
-            wybor = MetodyPomocnicze::wybierzOpcjeZMenuGlownego();
+            wybor = ksiazkaAdresowa.wybierzOpcjeZMenuGlownego();
 
             switch (wybor) {
             case '1':
@@ -39,11 +39,11 @@ int main() {
 
                 idOstatniegoAdresata = adresatMenedzer.wczytajAdresatowZalogowanegoUzytkownikaZPliku(idZalogowanegoUzytkownika);
 
-                wybor = MetodyPomocnicze::wybierzOpcjeZMenuUzytkownika();
+                wybor = ksiazkaAdresowa.wybierzOpcjeZMenuUzytkownika();
 
             switch (wybor) {
             case '1':
-                //idOstatniegoAdresata = dodajAdresata(adresaci, idZalogowanegoUzytkownika, idOstatniegoAdresata);
+                idOstatniegoAdresata = adresatMenedzer.dodajAdresata(idZalogowanegoUzytkownika, idOstatniegoAdresata);
                 break;
             case '2':
                 //wyszukajAdresatowPoImieniu(adresaci);
