@@ -47,12 +47,12 @@ bool PlikZAdresatami::dopiszAdresataDoPliku(Adresat adresat) {
     if (plikTekstowy.good() == true) {
         liniaZDanymiAdresata = zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(adresat);
 
-        /*if (czyPlikJestPusty(plikTekstowy) == false) {
+        if (czyPlikJestPusty() == true) {
             plikTekstowy << liniaZDanymiAdresata;
         } else {
             plikTekstowy << endl << liniaZDanymiAdresata;
-        }*/
-        plikTekstowy << endl << liniaZDanymiAdresata;
+        }
+
         idOstatniegoAdresata++;
         plikTekstowy.close();
         return true;
@@ -74,8 +74,9 @@ string PlikZAdresatami::zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKre
     return liniaZDanymiAdresata;
 }
 
-bool PlikZAdresatami::czyPlikJestPusty(fstream &plikTekstowy) {
+bool PlikZAdresatami::czyPlikJestPusty() {
 
+    fstream plikTekstowy;
     plikTekstowy.open(NAZWA_PLIKU_Z_ADRESATAMI.c_str(), ios::app);
     plikTekstowy.seekg(0, ios::end);
     if (plikTekstowy.tellg() == 0)
