@@ -3,39 +3,30 @@
 
 #include <iostream>
 #include <vector>
-#include <fstream>
 #include <sstream>
-#include <algorithm>
+#include <windows.h>
 
 #include "Adresat.h"
-#include "MetodyPomocnicze.h"
-#include "PlikZUzytkownikami.h"
+#include "PlikZAdresatami.h"
 
 using namespace std;
 
 class AdresatMenedzer {
 
+    const int ID_ZALOGOWANEGO_UZYTKOWNIKA;
     vector <Adresat> adresaci;
-    string nazwaPlikuZAdresatami;
+    PlikZAdresatami plikZAdresatami;
 
-    Adresat podajDaneNowegoAdresata(int idZalogowanegoUzytkownika, int idOstatniegoAdresata);
+    Adresat podajDaneNowegoAdresata();
     void wyswietlDaneAdresata(Adresat adresat);
-    int pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami);
-    static int pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami);
-    static Adresat pobierzDaneAdresata(string daneAdresataOddzielonePionowymiKreskami);
-    void wypiszWszystkichAdresatow();
-    string zamienPierwszaLitereNaDuzaAPozostaleNaMale(string tekst);
-    void dopiszAdresataDoPliku(Adresat adresat);
-    string zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(Adresat adresat);
-    bool czyPlikJestPusty();
 
 public:
+    AdresatMenedzer(string nazwaPlikuZAdresatami, int idZalogowanegoUzytkownika):
+        plikZAdresatami(nazwaPlikuZAdresatami), ID_ZALOGOWANEGO_UZYTKOWNIKA(idZalogowanegoUzytkownika) {
 
-    AdresatMenedzer();
-    int dodajAdresata(int idZalogowanegoUzytkownika, int idOstatniegoAdresata);
-    int wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika);
-    bool czyWektorJestPusty();
+        adresaci = plikZAdresatami.wczytajAdresatowZalogowanegoUzytkownikaZPliku(ID_ZALOGOWANEGO_UZYTKOWNIKA);
+    };
+    void dodajAdresata();
     void wyswietlWszystkichAdresatow();
-
 };
 #endif
