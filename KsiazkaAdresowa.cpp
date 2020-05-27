@@ -1,19 +1,31 @@
 #include "KsiazkaAdresowa.h"
 
-using namespace std;
+bool KsiazkaAdresowa::czyUzytkownikJestZalogowany() {
+    return uzytkownikMenedzer.czyUzytkownikJestZalogowany();
+}
 
 void KsiazkaAdresowa::rejestracjaUzytkownika() {
 
     uzytkownikMenedzer.rejestracjaUzytkownika();
 }
 
-int KsiazkaAdresowa::logowanieUzytkownika() {
+void KsiazkaAdresowa::logowanieUzytkownika() {
     uzytkownikMenedzer.logowanieUzytkownika();
+    if (uzytkownikMenedzer.czyUzytkownikJestZalogowany()) {
+
+        adresatMenedzer = new AdresatMenedzer(NAZWA_PLIKU_Z_ADRESATAMI, uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika());
+    }
 }
 
-void KsiazkaAdresowa::wypiszWszystkichUzytkownikow() {
-    uzytkownikMenedzer.wypiszWszystkichUzytkownikow();
+void KsiazkaAdresowa::wylogowanieUzytkownika() {
+    uzytkownikMenedzer.wylogowanieUzytkownika();
+    delete adresatMenedzer;
+    adresatMenedzer = NULL;
 }
+
+/*void KsiazkaAdresowa::zmianaHaslaZalogowanegoUzytkownika() {
+    uzytkownikMenedzer.zmianaHaslaZalogowanegoUzytkownika();
+}*/
 
 char KsiazkaAdresowa::wybierzOpcjeZMenuGlownego() {
     char wybor;
@@ -31,6 +43,24 @@ char KsiazkaAdresowa::wybierzOpcjeZMenuGlownego() {
     return wybor;
 }
 
+void KsiazkaAdresowa::dodajAdresata() {
+    if (uzytkownikMenedzer.czyUzytkownikJestZalogowany()) {
+        adresatMenedzer->dodajAdresata();
+    } else {
+        cout << "Nie jestes zalogowany" << endl;
+        system("pause");
+    }
+}
+
+void KsiazkaAdresowa::wyswietlWszystkichAdresatow() {
+    if (uzytkownikMenedzer.czyUzytkownikJestZalogowany()) {
+        adresatMenedzer->wyswietlWszystkichAdresatow();
+    } else {
+        cout << "Nie jestes zalogowany" << endl;
+        system("pause");
+    }
+}
+
 char KsiazkaAdresowa::wybierzOpcjeZMenuUzytkownika() {
     char wybor;
 
@@ -43,10 +73,10 @@ char KsiazkaAdresowa::wybierzOpcjeZMenuUzytkownika() {
     cout << "4. Wyswietl adresatow" << endl;
     //cout << "5. Usun adresata" << endl;
     //cout << "6. Edytuj adresata" << endl;
-    //cout << "---------------------------" << endl;
+    cout << "---------------------------" << endl;
     //cout << "7. Zmien haslo" << endl;
-    //cout << "8. Wyloguj sie" << endl;
-    //cout << "---------------------------" << endl;
+    cout << "8. Wyloguj sie" << endl;
+    cout << "---------------------------" << endl;
     cout << "Twoj wybor: ";
     cin >> wybor;
 

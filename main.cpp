@@ -1,21 +1,17 @@
 #include <iostream>
 
 #include "KsiazkaAdresowa.h"
-#include "AdresatMenedzer.h"
 
 using namespace std;
 
 int main() {
 
-    int idZalogowanegoUzytkownika = 0;
-    int idOstatniegoAdresata= 0;
-    //int idUsunietegoAdresata = 0;
     char wybor;
-    AdresatMenedzer adresatMenedzer;
-    KsiazkaAdresowa ksiazkaAdresowa("Uzytkownicy.txt");
+
+    KsiazkaAdresowa ksiazkaAdresowa("Uzytkownicy.txt","Adresaci.txt");
 
     while (true) {
-        if (idZalogowanegoUzytkownika == 0) {
+        if (ksiazkaAdresowa.czyUzytkownikJestZalogowany() == false) {
             wybor = ksiazkaAdresowa.wybierzOpcjeZMenuGlownego();
 
             switch (wybor) {
@@ -23,7 +19,7 @@ int main() {
                 ksiazkaAdresowa.rejestracjaUzytkownika();
                 break;
             case '2':
-                idZalogowanegoUzytkownika = ksiazkaAdresowa.logowanieUzytkownika();
+                ksiazkaAdresowa.logowanieUzytkownika();
                 break;
             case '9':
                 exit(0);
@@ -34,15 +30,11 @@ int main() {
                 break;
             }
         } else {
-            if (adresatMenedzer.czyWektorJestPusty() == true)
-
-                idOstatniegoAdresata = adresatMenedzer.wczytajAdresatowZalogowanegoUzytkownikaZPliku(idZalogowanegoUzytkownika);
-
             wybor = ksiazkaAdresowa.wybierzOpcjeZMenuUzytkownika();
 
             switch (wybor) {
             case '1':
-                idOstatniegoAdresata = adresatMenedzer.dodajAdresata(idZalogowanegoUzytkownika, idOstatniegoAdresata);
+                ksiazkaAdresowa.dodajAdresata();
                 break;
             case '2':
                 //wyszukajAdresatowPoImieniu(adresaci);
@@ -51,7 +43,7 @@ int main() {
                 //wyszukajAdresatowPoNazwisku(adresaci);
                 break;
             case '4':
-                adresatMenedzer.wyswietlWszystkichAdresatow();
+                ksiazkaAdresowa.wyswietlWszystkichAdresatow();
                 break;
             case '5':
                 //idUsunietegoAdresata = usunAdresata(adresaci);
@@ -64,11 +56,9 @@ int main() {
                 //zmianaHaslaZalogowanegoUzytkownika(uzytkownicy, idZalogowanegoUzytkownika);
                 break;
             case '8':
-                //idZalogowanegoUzytkownika = 0;
-                //adresaci.clear();
+                ksiazkaAdresowa.wylogowanieUzytkownika();
                 break;
             };
         }
     }
-    return 0;
 }

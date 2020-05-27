@@ -37,16 +37,6 @@ int UzytkownikMenedzer::pobierzIdNowegoUzytkownika() {
         return uzytkownicy.back().pobierzId() + 1;
 }
 
-void UzytkownikMenedzer::wypiszWszystkichUzytkownikow() {
-
-    for (int i=0; i<uzytkownicy.size(); i++) {
-
-        cout <<uzytkownicy[i].pobierzId()<< endl;
-        cout <<uzytkownicy[i].pobierzLogin()<< endl;
-        cout <<uzytkownicy[i].pobierzHaslo()<< endl;
-    }
-}
-
 bool UzytkownikMenedzer::czyIstniejeLogin(string login) {
 
     for (int i=0; i<uzytkownicy.size(); i++) {
@@ -58,33 +48,49 @@ bool UzytkownikMenedzer::czyIstniejeLogin(string login) {
     return false;
 }
 
-int UzytkownikMenedzer::logowanieUzytkownika() {
+void UzytkownikMenedzer::logowanieUzytkownika() {
 
     string login = "", haslo = "";
 
     cout << endl << "Podaj login: ";
-    cin >> login;
+    login = MetodyPomocnicze::wczytajLinie();
 
     vector <Uzytkownik>::iterator itr = uzytkownicy.begin();
     while (itr != uzytkownicy.end()) {
         if (itr -> pobierzLogin() == login) {
             for (int iloscProb = 3; iloscProb > 0; iloscProb--) {
                 cout << "Podaj haslo. Pozostalo prob: " << iloscProb << ": ";
-                cin >> haslo;
+                haslo = MetodyPomocnicze::wczytajLinie();
 
                 if (itr -> pobierzHaslo() == haslo) {
+                    idZalogowanegoUzytkownika = itr -> pobierzId();
                     cout << endl << "Zalogowales sie." << endl << endl;
                     system("pause");
-                    return itr -> pobierzId();
+                    return;
                 }
             }
             cout << "Wprowadzono 3 razy bledne haslo." << endl;
             system("pause");
-            return 0;
+            return;
         }
         itr++;
     }
     cout << "Nie ma uzytkownika z takim loginem" << endl << endl;
     system("pause");
-    return 0;
+    return;
+}
+
+bool UzytkownikMenedzer::czyUzytkownikJestZalogowany() {
+    if (idZalogowanegoUzytkownika > 0)
+        return true;
+    else
+        return false;
+}
+
+void UzytkownikMenedzer::wylogowanieUzytkownika() {
+    idZalogowanegoUzytkownika = 0;
+}
+
+int UzytkownikMenedzer::pobierzIdZalogowanegoUzytkownika() {
+    return idZalogowanegoUzytkownika;
 }

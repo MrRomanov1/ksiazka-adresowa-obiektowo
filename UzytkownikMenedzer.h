@@ -9,24 +9,27 @@
 #include "Uzytkownik.h"
 #include "PlikZUzytkownikami.h"
 
-using namespace std;
-
 class UzytkownikMenedzer {
 
     int idZalogowanegoUzytkownika;
     vector <Uzytkownik> uzytkownicy;
+    PlikZUzytkownikami plikZUzytkownikami;
 
     Uzytkownik podajDaneNowegoUzytkownika();
     int pobierzIdNowegoUzytkownika();
     bool czyIstniejeLogin(string login);
-    PlikZUzytkownikami plikZUzytkownikami;
+
 
 public:
     UzytkownikMenedzer(string nazwaPlikuZUzytkownikami) : plikZUzytkownikami (nazwaPlikuZUzytkownikami) {
-    uzytkownicy = plikZUzytkownikami.wczytajUzytkownikowZPliku();;
+        idZalogowanegoUzytkownika = 0;
+        uzytkownicy = plikZUzytkownikami.wczytajUzytkownikowZPliku();
     };
     void rejestracjaUzytkownika();
-    int logowanieUzytkownika();
-    void wypiszWszystkichUzytkownikow();
+    void logowanieUzytkownika();
+    bool czyUzytkownikJestZalogowany();
+    void zmianaHaslaZalogowanegoUzytkownika();
+    void wylogowanieUzytkownika();
+    int pobierzIdZalogowanegoUzytkownika();
 };
 #endif
