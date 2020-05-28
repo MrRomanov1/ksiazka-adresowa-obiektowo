@@ -12,6 +12,7 @@ class KsiazkaAdresowa {
     AdresatMenedzer *adresatMenedzer;
     const string NAZWA_PLIKU_Z_ADRESATAMI;
 
+
 public:
     KsiazkaAdresowa(string nazwaPlikuZUzytkownikami, string nazwaPlikuZAdresatami)
         :uzytkownikMenedzer(nazwaPlikuZUzytkownikami), NAZWA_PLIKU_Z_ADRESATAMI(nazwaPlikuZAdresatami) {
@@ -23,14 +24,13 @@ public:
         delete adresatMenedzer;
         adresatMenedzer = NULL;
     };
-
+    void zmianaHaslaZalogowanegoUzytkownika();
     bool czyUzytkownikJestZalogowany();
     char wybierzOpcjeZMenuGlownego();
     char wybierzOpcjeZMenuUzytkownika();
     void rejestracjaUzytkownika();
     void logowanieUzytkownika();
     void wylogowanieUzytkownika();
-    //void zmianaHaslaZalogowanegoUzytkownika();
     void dodajAdresata();
     void wyswietlWszystkichAdresatow();
 

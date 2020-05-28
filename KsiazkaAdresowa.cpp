@@ -5,9 +5,16 @@ bool KsiazkaAdresowa::czyUzytkownikJestZalogowany() {
 }
 
 void KsiazkaAdresowa::rejestracjaUzytkownika() {
-
     uzytkownikMenedzer.rejestracjaUzytkownika();
 }
+
+void KsiazkaAdresowa::zmianaHaslaZalogowanegoUzytkownika(){
+
+    if (uzytkownikMenedzer.czyUzytkownikJestZalogowany()) {
+        uzytkownikMenedzer.zmianaHaslaZalogowanegoUzytkownika();
+    }
+}
+
 
 void KsiazkaAdresowa::logowanieUzytkownika() {
     uzytkownikMenedzer.logowanieUzytkownika();
@@ -22,10 +29,6 @@ void KsiazkaAdresowa::wylogowanieUzytkownika() {
     delete adresatMenedzer;
     adresatMenedzer = NULL;
 }
-
-/*void KsiazkaAdresowa::zmianaHaslaZalogowanegoUzytkownika() {
-    uzytkownikMenedzer.zmianaHaslaZalogowanegoUzytkownika();
-}*/
 
 char KsiazkaAdresowa::wybierzOpcjeZMenuGlownego() {
     char wybor;
@@ -74,7 +77,7 @@ char KsiazkaAdresowa::wybierzOpcjeZMenuUzytkownika() {
     //cout << "5. Usun adresata" << endl;
     //cout << "6. Edytuj adresata" << endl;
     cout << "---------------------------" << endl;
-    //cout << "7. Zmien haslo" << endl;
+    cout << "7. Zmien haslo" << endl;
     cout << "8. Wyloguj sie" << endl;
     cout << "---------------------------" << endl;
     cout << "Twoj wybor: ";
