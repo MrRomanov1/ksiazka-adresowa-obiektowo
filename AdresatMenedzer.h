@@ -28,5 +28,7 @@ public:
     };
     void dodajAdresata();
     void wyswietlWszystkichAdresatow();
+    int podajIdWybranegoAdresata();
+    void usunAdresata();
 };
 #endif
