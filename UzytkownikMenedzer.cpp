@@ -8,7 +8,8 @@ void UzytkownikMenedzer::rejestracjaUzytkownika() {
     plikZUzytkownikami.dopiszUzytkownikaDoPliku(uzytkownik);
 
     cout << endl << "Konto zalozono pomyslnie" << endl << endl;
-    system("pause");
+    cout << "Nacisnij dowolny przycisk, aby kontynuowac." << endl;
+    getch();
 }
 
 Uzytkownik UzytkownikMenedzer::podajDaneNowegoUzytkownika() {
@@ -65,18 +66,21 @@ void UzytkownikMenedzer::logowanieUzytkownika() {
                 if (itr -> pobierzHaslo() == haslo) {
                     idZalogowanegoUzytkownika = itr -> pobierzId();
                     cout << endl << "Zalogowales sie." << endl << endl;
-                    system("pause");
+                    cout << "Nacisnij dowolny przycisk, aby kontynuowac." << endl;
+                    getch();
                     return;
                 }
             }
             cout << "Wprowadzono 3 razy bledne haslo." << endl;
-            system("pause");
+            cout << "Nacisnij dowolny przycisk, aby kontynuowac." << endl;
+            getch();
             return;
         }
         itr++;
     }
     cout << "Nie ma uzytkownika z takim loginem" << endl << endl;
-    system("pause");
+    cout << "Nacisnij dowolny przycisk, aby kontynuowac." << endl;
+    getch();
     return;
 }
 
@@ -105,7 +109,8 @@ void UzytkownikMenedzer::zmianaHaslaZalogowanegoUzytkownika() {
         if (itr -> pobierzId() == idZalogowanegoUzytkownika) {
             itr -> ustawHaslo(noweHaslo);
             cout << "Haslo zostalo zmienione." << endl << endl;
-            system("pause");
+            cout << "Nacisnij dowolny przycisk, aby kontynuowac." << endl;
+            getch();
         }
     }
     plikZUzytkownikami.zapiszWszystkichUzytkownikowDoPliku(uzytkownicy);

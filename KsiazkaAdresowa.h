@@ -2,6 +2,7 @@
 #define KSIAZKAADRESOWA_H
 
 #include <iostream>
+#include <conio.h>
 
 #include "UzytkownikMenedzer.h"
 #include "AdresatMenedzer.h"
@@ -34,6 +35,8 @@ public:
     void dodajAdresata();
     void wyswietlWszystkichAdresatow();
     void usunAdresata();
+    static char wybierzOpcjeZMenuEdycja();
+    void edytujAdresata();
 
 };
 
