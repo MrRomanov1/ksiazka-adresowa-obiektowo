@@ -25,6 +25,8 @@ public:
         delete adresatMenedzer;
         adresatMenedzer = NULL;
     };
+    void wyszukajAdresatowPoImieniu();
+    void wyszukajAdresatowPoNazwisku();
     void zmianaHaslaZalogowanegoUzytkownika();
     bool czyUzytkownikJestZalogowany();
     char wybierzOpcjeZMenuGlownego();
