@@ -26,7 +26,8 @@ int main() {
                 break;
             default:
                 cout << endl << "Nie ma takiej opcji w menu." << endl << endl;
-                system("pause");
+                cout << "Nacisnij dowolny przycisk, aby kontynuowac." << endl;
+                getch();
                 break;
             }
         } else {
@@ -49,7 +50,7 @@ int main() {
                 ksiazkaAdresowa.usunAdresata();
                 break;
             case '6':
-                //edytujAdresata(adresaci);
+                ksiazkaAdresowa.edytujAdresata();
                 break;
             case '7':
                 ksiazkaAdresowa.zmianaHaslaZalogowanegoUzytkownika();
