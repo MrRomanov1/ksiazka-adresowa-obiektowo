@@ -37,10 +37,10 @@ Adresat AdresatMenedzer::podajDaneNowegoAdresata() {
     nazwisko = MetodyPomocnicze::zamienPierwszaLitereNaDuzaAPozostaleNaMale(nazwisko);
     adresat.ustawNazwisko(nazwisko);
     cout << "Podaj numer telefonu: ";
-    numerTelefonu = MetodyPomocnicze::wczytajLinie();
+    numerTelefonu = MetodyPomocnicze::sprawdzPoprawnoscTelefonu();
     adresat.ustawNumerTelefonu(numerTelefonu);
     cout << "Podaj email: ";
-    email = MetodyPomocnicze::wczytajLinie();
+    email = MetodyPomocnicze::sprawdzPoprawnoscEmail();
     adresat.ustawEmail(email);
     cout << "Podaj adres: ";
     adres = MetodyPomocnicze::wczytajLinie();
@@ -94,7 +94,7 @@ void AdresatMenedzer::usunAdresata() {
     for (vector <Adresat>::iterator itr = adresaci.begin(); itr != adresaci.end(); itr++) {
         if (itr -> pobierzIdAdresata() == idUsuwanegoAdresata) {
             czyIstniejeAdresat = true;
-            cout << endl << "Usuwasz " << itr -> pobierzImie() << itr -> pobierzNazwisko() << endl;
+            cout << endl << "Usuwasz " << itr -> pobierzImie() <<" "<< itr -> pobierzNazwisko() << endl;
             cout << endl << "Potwierdz naciskajac klawisz 't': ";
             znak = MetodyPomocnicze::wczytajZnak();
             if (znak == 't') {
@@ -155,12 +155,12 @@ void AdresatMenedzer::edytujAdresata() {
                 break;
             case '3':
                 cout << "Podaj nowy numer telefonu: ";
-                adresaci[i].ustawNumerTelefonu(MetodyPomocnicze::wczytajLinie());
+                adresaci[i].ustawNumerTelefonu(MetodyPomocnicze::sprawdzPoprawnoscTelefonu());
                 plikZAdresatami.zaktualizujDaneWybranegoAdresata(adresaci[i]);
                 break;
             case '4':
                 cout << "Podaj nowy email: ";
-                adresaci[i].ustawEmail(MetodyPomocnicze::wczytajLinie());
+                adresaci[i].ustawEmail(MetodyPomocnicze::sprawdzPoprawnoscEmail());
                 plikZAdresatami.zaktualizujDaneWybranegoAdresata(adresaci[i]);
                 break;
             case '5':
