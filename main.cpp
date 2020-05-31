@@ -57,7 +57,7 @@ int main() {
             case '8':
                 ksiazkaAdresowa.wylogowanieUzytkownika();
                 break;
-            };
+            }
         }
     }
 }

@@ -39,13 +39,11 @@ string MetodyPomocnicze::zamienPierwszaLitereNaDuzaAPozostaleNaMale(string tekst
     return tekst;
 }
 
-int MetodyPomocnicze::wczytajLiczbeCalkowita()
-{
+int MetodyPomocnicze::wczytajLiczbeCalkowita() {
     string wejscie = "";
     int liczba = 0;
-
-    while (true)
-    {
+    cin.sync();
+    while (true) {
         getline(cin, wejscie);
 
         stringstream myStream(wejscie);
@@ -56,17 +54,14 @@ int MetodyPomocnicze::wczytajLiczbeCalkowita()
     return liczba;
 }
 
-char MetodyPomocnicze::wczytajZnak()
-{
+char MetodyPomocnicze::wczytajZnak() {
     string wejscie = "";
     char znak  = {0};
 
-    while (true)
-    {
+    while (true) {
         getline(cin, wejscie);
 
-        if (wejscie.length() == 1)
-        {
+        if (wejscie.length() == 1) {
             znak = wejscie[0];
             break;
         }
