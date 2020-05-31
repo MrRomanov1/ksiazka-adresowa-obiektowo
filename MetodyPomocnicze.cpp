@@ -69,3 +69,65 @@ char MetodyPomocnicze::wczytajZnak() {
     }
     return znak;
 }
+
+string MetodyPomocnicze::sprawdzPoprawnoscTelefonu() {
+    string numerTelefonu;
+    int i, dlugoscNumeru;
+
+    cin.sync();
+    getline(cin,numerTelefonu);
+    dlugoscNumeru = numerTelefonu.length();
+    i=0;
+
+    while (i<dlugoscNumeru) {
+        if ((numerTelefonu [i] >= '0')&&(numerTelefonu[i] <='9') || (numerTelefonu[i] == 32)) {
+            i++;
+        } else {
+            cout << "Numer telefonu jest bledny. Wprowadz ponownie numer telefonu: ";
+            cin.sync();
+            getline(cin,numerTelefonu);
+            dlugoscNumeru = numerTelefonu.length();
+            i=0;
+        }
+    }
+    return numerTelefonu;
+}
+
+string MetodyPomocnicze::sprawdzPoprawnoscEmail() {
+    string email;
+    int dlugoscEmaila;
+    int iloscMalp;  //sprawdzam czy jest znak @
+    int iloscKropek;//sprawdzam czy jest kropka po znaku @
+    int pozycjaMalpy, i, j;
+
+    for (;;) {
+        cin >> email;
+        dlugoscEmaila = email.length();
+        iloscMalp = 0;
+        pozycjaMalpy = 0;
+        iloscKropek = 0;
+        i = 0;
+
+        while (i < dlugoscEmaila) {
+            if (email[i] == '@') {
+                iloscMalp++;
+                pozycjaMalpy = i;
+            }
+            i++;
+        }
+
+        j = pozycjaMalpy;
+
+        while (j < dlugoscEmaila) {
+            if (email[j] == '.') {
+                iloscKropek++;
+            }
+            j++;
+        }
+        if ((iloscMalp == 1) && (iloscKropek > 0) && (dlugoscEmaila >4 )) {
+            return email;
+        } else {
+            cout << "Niepoprawny adres email. Wprowadz ponownie: ";
+        }
+    }
+}
