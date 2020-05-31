@@ -135,6 +135,9 @@ void AdresatMenedzer::edytujAdresata() {
     for (int i = 0; i < adresaci.size(); i++) {
         if (adresaci[i].pobierzIdAdresata() == idEdytowanegoAdresata) {
             czyIstniejeAdresat = true;
+
+            cout << "Edytujesz:" << endl << adresaci[i].pobierzImie() << " " << adresaci[i].pobierzNazwisko() << endl;
+            cout << adresaci[i].pobierzNumerTelefonu() << endl << adresaci[i].pobierzEmail() << endl << adresaci[i].pobierzAdres() << endl;
             wybor = KsiazkaAdresowa::wybierzOpcjeZMenuEdycja();
 
             switch (wybor) {
