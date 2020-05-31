@@ -34,6 +34,6 @@ public:
     void usunWybranaLinieWPliku(int idUsuwanegoAdresata);
     void zmienNazwePliku(string staraNazwa, string nowaNazwa);
     void usunPlik(string nazwaPlikuZRozszerzeniem);
-    };
+};
 
 #endif

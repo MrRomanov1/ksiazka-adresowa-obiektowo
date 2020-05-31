@@ -8,13 +8,12 @@ void KsiazkaAdresowa::rejestracjaUzytkownika() {
     uzytkownikMenedzer.rejestracjaUzytkownika();
 }
 
-void KsiazkaAdresowa::zmianaHaslaZalogowanegoUzytkownika(){
+void KsiazkaAdresowa::zmianaHaslaZalogowanegoUzytkownika() {
 
     if (uzytkownikMenedzer.czyUzytkownikJestZalogowany()) {
         uzytkownikMenedzer.zmianaHaslaZalogowanegoUzytkownika();
     }
 }
-
 
 void KsiazkaAdresowa::logowanieUzytkownika() {
     uzytkownikMenedzer.logowanieUzytkownika();
@@ -87,5 +86,10 @@ char KsiazkaAdresowa::wybierzOpcjeZMenuUzytkownika() {
 }
 
 void KsiazkaAdresowa::usunAdresata() {
-    adresatMenedzer->usunAdresata();
+    if (uzytkownikMenedzer.czyUzytkownikJestZalogowany()) {
+        adresatMenedzer->usunAdresata();
+    } else {
+        cout << "Nie jestes zalogowany" << endl;
+        system("pause");
+    }
 }
