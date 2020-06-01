@@ -9,7 +9,7 @@ bool PlikTekstowy::czyPlikJestPusty() {
     fstream plikTekstowy;
     plikTekstowy.open(pobierzNazwePliku().c_str(), ios::app);
 
-    if (plikTekstowy.good() == true) {
+    if (plikTekstowy.good()) {
         plikTekstowy.seekg(0, ios::end);
         if (plikTekstowy.tellg() != 0)
             pusty = false;
