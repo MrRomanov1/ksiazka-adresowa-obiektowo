@@ -111,7 +111,7 @@ void AdresatMenedzer::usunAdresata() {
             }
         }
     }
-    if (czyIstniejeAdresat == false) {
+    if (!czyIstniejeAdresat) {
         cout << endl << "Nie ma takiego adresata w ksiazce adresowej" << endl << endl;
         cout << "Nacisnij dowolny przycisk, aby kontynuowac." << endl;
         getch();
@@ -177,7 +177,7 @@ void AdresatMenedzer::edytujAdresata() {
             }
         }
     }
-    if (czyIstniejeAdresat == false) {
+    if (!czyIstniejeAdresat) {
         cout << endl << "Nie ma takiego adresata." << endl << endl;
     }
     cout << "Nacisnij dowolny przycisk, aby kontynuowac." << endl;
